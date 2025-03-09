@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp()); // Executa o aplicativo
+  runApp(MyApp()); 
 }
 
 class MyApp extends StatelessWidget {
@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Calculadora de Combustível',
-      home: Home(), // Define a tela inicial como Home
-      debugShowCheckedModeBanner: false, // Remove a faixa de debug
+      home: Home(), 
+      debugShowCheckedModeBanner: false, 
     );
   }
 }
@@ -25,10 +25,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   final TextEditingController _alcoolController = TextEditingController();
   final TextEditingController _gasolinaController = TextEditingController();
 
-  String _infoText = "Informe os preços do álcool e da gasolina!"; // Texto inicial
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Chave global para o formulário
-  double _opacity = 0.0; // Opacidade inicial para animação
-  late AnimationController _controller; // Controlador de animação
+  String _infoText = "Informe os preços do álcool e da gasolina!"; 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); 
+  double _opacity = 0.0; 
+  late AnimationController _controller; 
 
   @override
   void initState() {
@@ -81,23 +81,23 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calculadora de Combustível"), // Define o título do AppBar
-        centerTitle: true, // Centraliza o título
-        backgroundColor: const Color.fromARGB(255, 236, 201, 0), // Define a cor do AppBar
+        title: Text("Calculadora de Combustível"), 
+        centerTitle: true, 
+        backgroundColor: const Color.fromARGB(255, 236, 201, 0), 
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.refresh), // Ícone de reset
-            onPressed: _resetFields, // Chama a função de reset
+            icon: Icon(Icons.refresh), 
+            onPressed: _resetFields, 
           )
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 255, 251, 199), // Define a cor de fundo da tela
+      backgroundColor: const Color.fromARGB(255, 255, 251, 199), 
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10.0), // Adiciona espaçamento ao redor
+        padding: EdgeInsets.all(10.0), 
         child: Form(
-          key: _formKey, // Associa a chave do formulário
+          key: _formKey, 
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch, // Estica os widgets horizontalmente
+            crossAxisAlignment: CrossAxisAlignment.stretch, 
             children: <Widget>[
               Icon(
                 Icons.local_gas_station,
@@ -105,10 +105,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 color: const Color.fromARGB(255, 114, 23, 23),
               ), // Ícone decorativo
               TextFormField(
-                keyboardType: TextInputType.number, // Define o teclado numérico
+                keyboardType: TextInputType.number, 
                 decoration: InputDecoration(
-                  labelText: " Preço do álcool ", // Texto do rótulo
-                  labelStyle: TextStyle(color: const Color.fromARGB(255, 201, 147, 0)), // Estiliza o rótulo
+                  labelText: " Preço do álcool ", 
+                  labelStyle: TextStyle(color: const Color.fromARGB(255, 201, 147, 0)), 
                                     border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
                     borderSide: BorderSide(color: const Color.fromARGB(255, 201, 147, 0)),
@@ -116,9 +116,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   prefixText: "R\$ ", // Adiciona o símbolo R$ fixo
                   prefixStyle: TextStyle(color: const Color.fromARGB(255, 201, 147, 0)),
                 ),
-                textAlign: TextAlign.center, // Centraliza o texto do input
-                style: TextStyle(color: const Color.fromARGB(255, 201, 147, 0), fontSize: 25.0), // Estiliza o texto inserido
-                controller: _alcoolController, // Associa o controlador ao campo
+                textAlign: TextAlign.center, 
+                style: TextStyle(color: const Color.fromARGB(255, 201, 147, 0), fontSize: 25.0), 
+                controller: _alcoolController, 
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Insira o valor do álcool!"; // Mensagem de erro
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   return null;
                 },
               ),
-              SizedBox(height: 10.0), // Espaçamento entre os campos
+              SizedBox(height: 10.0), 
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -163,9 +163,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 25.0),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 201, 147, 0), // Define a cor do botão
+                    backgroundColor: const Color.fromARGB(255, 201, 147, 0), 
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Arredonda as bordas do botão
+                      borderRadius: BorderRadius.circular(10.0), 
                     ),
                   ),
                 ),
@@ -175,7 +175,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 opacity: _opacity, // Controla a opacidade
                 duration: Duration(milliseconds: 300), // Duração da animação
                 child: Text(
-                  _infoText, // Exibe o resultado do cálculo
+                  _infoText, 
                   textAlign: TextAlign.center,
                   style: TextStyle(color: const Color.fromARGB(255, 62, 128, 0), fontSize: 25.0),
                 ),
